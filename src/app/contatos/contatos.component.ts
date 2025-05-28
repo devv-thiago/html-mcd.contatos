@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PoModule, PoMultiselectOption, PoPageModule } from '@po-ui/ng-components';
+import { PoModule, PoMultiselectOption, PoNotificationService, PoPageModule } from '@po-ui/ng-components';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -17,11 +17,11 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
   styleUrls: ['./contatos.component.css']
 })
 export class ContatosComponent implements OnInit {
-   form = new FormGroup({
-    nome: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+   formularioContatos = new FormGroup({
+    nome: new FormControl('', Validators.required,),
+    email: new FormControl('', Validators.email),
     cargo: new FormControl('', Validators.required),
-    numero: new FormControl('', Validators.required)
+    numero: new FormControl('',[ Validators.minLength(11),Validators.maxLength(11)])
   });
 
   readonly options: Array<PoMultiselectOption > = [
@@ -29,7 +29,9 @@ export class ContatosComponent implements OnInit {
       { label: 'Grupo 2', value: "2"},
     ];
 
-  constructor() { }
+  constructor(private poNotification: PoNotificationService) {
+
+  }
 
   ngOnInit() { }
 
@@ -39,6 +41,11 @@ export class ContatosComponent implements OnInit {
 
   save() {
     // save action here
+    if(this.formularioContatos.invalid){
+      this.poNotification.information("Dados inválidos")
+    } else {
+      this.poNotification.success("Dados salvos")
+    }
   }
 
   saveNew() {

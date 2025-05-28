@@ -3,11 +3,12 @@
   (p-cancel)="cancel()"
   (p-save)="save()"
   (p-save-new)="saveNew()">
-
-   <form [formGroup]="form" (ngSubmit)="save()">
+   <form [formGroup]="formularioGrupos" (ngSubmit)="save()">
     <po-container>
-      <po-input formControlName="nome" p-label="Nome"/>
-      <po-input formControlName="descricao" p-label="Descrição"/>
+      <div class="po-row" >
+        <po-input class="po-md-6" formControlName="nome" p-label="Nome"/>
+        <po-input class="po-md-6" formControlName="descricao" p-label="Descrição"/>
+      </div>
     </po-container>
   </form>
 </po-page-edit>

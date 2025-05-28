@@ -1,4 +1,5 @@
 export interface Grupo {
-  nome: string 
+  id: number
+  nome: string
   descricao: string
 }

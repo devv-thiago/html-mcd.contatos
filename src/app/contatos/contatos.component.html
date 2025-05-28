@@ -4,15 +4,17 @@
   (p-save)="save()"
   (p-save-new)="saveNew()">
 
-  <form [formGroup]="form" (ngSubmit)="save()">
+  <form [formGroup]="formularioContatos" (ngSubmit)="save()">
     <po-container>
-      <po-input formControlName="nome" p-label="Nome"/>
-      <po-input formControlName="email" p-label="E-mail"/>
-      <po-input formControlName="cargo" p-label="Cargo"/>
-      <po-input formControlName="numero" p-label="Número"/>
-      <po-multiselect [p-options]="options">
-
-      </po-multiselect>
+      <div class="po-row">
+        <po-input class="po-md-4" formControlName="nome" p-label="Nome"/>
+        <po-input class="po-md-4" formControlName="email" p-label="E-mail"/>
+        <po-input class="po-md-4" formControlName="cargo" p-label="Cargo"/>
+      </div>
+      <div class="po-row">
+        <po-input class="po-md-6" formControlName="numero" p-label="Número"/>
+        <po-multiselect p-label="Grupos" class="po-md-6" [p-options]="options"></po-multiselect>
+      </div>
     </po-container>
   </form>
 </po-page-edit>

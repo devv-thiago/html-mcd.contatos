@@ -5,7 +5,6 @@ import { RouterOutlet } from '@angular/router';
 import {
   PoMenuItem,
   PoMenuModule,
-  PoMenuPanelItem,
   PoPageModule,
   PoToolbarModule,
 } from '@po-ui/ng-components';
@@ -25,8 +24,8 @@ import {
 export class AppComponent {
 
   readonly menus: Array<PoMenuItem> = [
-    { label: 'Grupos', link: "grupos" },
-    { label: 'Contatos',  link: "contatos"},
+    { label: 'Grupos', link: "grupos", icon: "an an-users-three"},
+    { label: 'Contatos',  link: "contatos", icon: "an an-phone"},
   ];
 
 }

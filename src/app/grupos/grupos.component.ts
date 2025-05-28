@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PoModule, PoPageModule } from '@po-ui/ng-components';
+import { PoModule, PoPageModule, PoNotificationService } from '@po-ui/ng-components';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Grupo } from '../shared/models/grupo.model';
 
 @Component({
   selector: 'app-grupos',
@@ -18,11 +17,11 @@ import { Grupo } from '../shared/models/grupo.model';
   styleUrls: ['./grupos.component.css']
 })
 export class GruposComponent implements OnInit {
-  form = new FormGroup({
-    nome: new FormControl<string>('', {nonNullable: true}),
-    descricao: new FormControl<string>('', {nonNullable: true})
+  formularioGrupos = new FormGroup({
+    nome: new FormControl<string>('', Validators.nullValidator),
+    descricao: new FormControl<string>('',Validators.required)
   });
-  constructor() { }
+  constructor(private poNotification: PoNotificationService) { }
 
   ngOnInit() { }
 
@@ -32,10 +31,10 @@ export class GruposComponent implements OnInit {
 
   save() {
     // save action here
-    if(this.form.value.nome === "" || this.form.value.descricao === "") {
-      alert("Dados não podem ser nulos")
+    if(this.formularioGrupos.value.nome === "" || this.formularioGrupos.value.descricao === "") {
+      this.poNotification.information("Dados inválidos, revise o cadastro")
     } else {
-      alert(this.form.value.nome + " - " + this.form.value.descricao)
+      this.poNotification.success("Dados salvos")
     }
 
   }

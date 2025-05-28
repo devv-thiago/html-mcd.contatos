@@ -1,0 +1,11 @@
+{
+  "grupos": [
+    {"id": 1,"nome":"Grupo 1", "descricao": "Grupo 1"},
+    {"id": 2,"nome":"Grupo 2", "descricao": "Grupo 3"}
+  ],
+  "contatos" : [
+    {"id": 1,"nome":"Thiago Lucas Fofano", "email": "teste@gmail.com", "telefone": "11941212799", "grupos": [1,2]},
+    {"id": 2,"nome":"Thiago Lucas Fofano", "email": "teste@gmail.com", "telefone": "11942221900", "grupos": [1]}
+  ]
+}
+

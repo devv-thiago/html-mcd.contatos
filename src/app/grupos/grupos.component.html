@@ -1,0 +1,13 @@
+<po-page-edit
+  p-title="Cadastro grupos"
+  (p-cancel)="cancel()"
+  (p-save)="save()"
+  (p-save-new)="saveNew()">
+
+   <form [formGroup]="form" (ngSubmit)="save()">
+    <po-container>
+      <po-input formControlName="nome" p-label="Nome"/>
+      <po-input formControlName="descricao" p-label="Descrição"/>
+    </po-container>
+  </form>
+</po-page-edit>

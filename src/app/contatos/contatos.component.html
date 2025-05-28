@@ -1,0 +1,18 @@
+<po-page-edit
+  p-title="Cadastro contatos"
+  (p-cancel)="cancel()"
+  (p-save)="save()"
+  (p-save-new)="saveNew()">
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <po-container>
+      <po-input formControlName="nome" p-label="Nome"/>
+      <po-input formControlName="email" p-label="E-mail"/>
+      <po-input formControlName="cargo" p-label="Cargo"/>
+      <po-input formControlName="numero" p-label="Número"/>
+      <po-multiselect [p-options]="options">
+
+      </po-multiselect>
+    </po-container>
+  </form>
+</po-page-edit>

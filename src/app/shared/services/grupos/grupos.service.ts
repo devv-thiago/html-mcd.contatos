@@ -11,7 +11,7 @@ export class GruposService {
     private apiUrl = 'http://localhost:3000/grupos';
 
     constructor(private http: HttpClient) { }
-    // GET
+      // GET
       getGrupos(): Observable<Grupo[]> {
         return this.http.get<Grupo[]>(this.apiUrl);
       }

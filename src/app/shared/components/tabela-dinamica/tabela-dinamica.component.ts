@@ -19,7 +19,7 @@ export class TabelaDinamicaComponent implements OnInit {
 
   ]
 
-  readonly actions: Array<PoTableAction > = [
+  readonly actions: Array<PoTableAction> = [
       { label: "Editar", icon: 'an an-pencil-simple'},
       { label: "Excluir", icon: 'an an-trash'},
     ];
